@@ -1,0 +1,64 @@
+﻿
+<!--Эта страница принимает модели таких типов как-->
+@model FirstWebPage.Models.ArticleModel
+
+<div class="document">
+    <div>&nbsp;</div>
+    <div class="dochead">
+        <span class="dhead">@Model.Title</span>
+    </div>
+    <div>
+        <p class="post"><span>@Model.Date.ToString("D")</span> <span>@Model.Date.ToString("hh:mm")</span></p>
+    </div>
+    <div class="dcontent">
+        @Html.Raw(Model.Body)
+    </div>
+    <div class="bubble" align="right">
+        <ul>
+            @foreach (var item in Model.Likes)
+            {
+                <li><a href="#"><img src="~/Content/images/facebook-24.png" /><span>item.LikesCount</span></a></li>
+            }
+            <!--<li><a href="#"><img src="~/Content/images/facebook-24.png" /><span>355</span></a></li>
+             <li><a href="#"><img src="~/Content/images/twitter-24.png" /><span>277</span></a></li>
+             <li><a href="#"><img src="~/Content/images/bootstrap-24.png" /><span>788</span></a></li>-->
+        </ul>
+    </div>
+</div>
+<div class="rtboxbg">&nbsp;</div>
+<div class="gap"></div>
+
+<div class="comments-add">
+    <div>&nbsp;</div>
+    <div class="сomments-title">
+        <span class="dhead">Комментарии</span>
+    </div>
+    <div class="comments-content">
+        <ul class="list-comment">
+            @foreach (var item in Model.Comments)
+            {
+                <li>
+                    <div class="avatar"><img src="~/Content/images/4tpTxSHyrlI.jpg" width="100px" height="100px" alt="" /></div>
+                    <div class="comments-text">
+                        <a href="#">@item.Username</a>
+                        <p class="date"><span>@item.Date.ToString("D")</span> <span>@item.Date.ToString("hh:mm")</span></p>
+                        <p>@item.Body</p>
+                    </div>
+                    <hr>
+                </li>
+            }
+
+
+        </ul>
+        <div class="add-comment">
+            <textarea name="" placeholder="Напиши сюда комментарий"></textarea>
+            <div class="btn">
+                <button class="btn-cancel">Cancel</button>
+                <button class="btn-save">Save</button>
+                <p>Что-то там написано непонятное <a href="#">Перейти</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="rtboxbg">&nbsp;</div>
+<div class="gap"></div>
