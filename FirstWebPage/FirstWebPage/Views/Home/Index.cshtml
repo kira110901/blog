@@ -38,14 +38,15 @@
             @foreach (string item in Model.Comments)
             {
                 <li>
-                  <div class="avatar"><img src="~/Content/images/4tpTxSHyrlI.jpg" width="100px" height="100px" alt="" /></div>
-                    <div class="comments-text">
-                        <a href="#"></a>
-                        <p class="date"><span>@DateTime.Now.Date.ToString("D")</span> <span>@DateTime.Now.Date.ToString("hh:mm")</span></p>
-                       <p>@item</p>
+                     
+                     <div class="avatar"><img src="~/Content/images/4tpTxSHyrlI.jpg" width="100px" height="100px" alt="" /></div>
+                     <div class="comments-text">
+                        <h4><span>Логин</span><span class="mail">dfg@df.dfg</span></h4>
+                        <span class="date">@DateTime.Now.Date.ToString("D")</span><span class="date">@DateTime.Now.Date.ToString("hh:mm")</span>
+                        <p>@item</p>
                     </div>
-                    <hr>
                 </li>
+                <hr>
             }
 
 

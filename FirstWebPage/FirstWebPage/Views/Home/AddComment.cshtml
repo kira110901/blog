@@ -5,9 +5,13 @@
 
 <div class="add-comment">
     <form action="@Url.Action("Index","Home")" method="post">
+        <label id="User_UserName" for='User.UserName'>Логин</label>
+        @Html.TextBoxFor(m => m.User.UserName, new { @class = "textbox, box" })
+        <label id="User_Mail" for='User.Mail'>Email</label>
+        @Html.TextBoxFor(m => m.User.Mail, new { @class = "textbox, box" })
+       
         @Html.TextAreaFor(m=>m.Commenttext, new { placeholder = "Напиши сюда комментарий" })
-        @Html.TextBoxFor(m => m.User.UserName)
-        @Html.TextBoxFor(m => m.User.Age)
+       
        <!--<textarea name="commenttext" id="commenttext" placeholder="Напиши сюда комментарий"></textarea>
         /<input type="text" name="user.username" id="user_username" >
         <input type="text" name="user.age" id="user_age" > -->
