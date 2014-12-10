@@ -5,20 +5,20 @@
 <div class="document">
     <div>&nbsp;</div>
     <div class="dochead">
-        <span class="dhead">@Model.Title</span>
+        <span class="dhead">fd</span>
     </div>
     <div>
-        <p class="post"><span>@Model.Date.ToString("D")</span> <span>@Model.Date.ToString("hh:mm")</span></p>
+        <p class="post"><span>@DateTime.Now.Date.ToString("D")</span> <span>@DateTime.Now.Date.ToString("hh:mm")</span></p>
     </div>
     <div class="dcontent">
-        @Html.Raw(Model.Body)
+       <!-- Html.Raw(Model.Body)  -->
     </div>
     <div class="bubble" align="right">
         <ul>
-            @foreach (var item in Model.Likes)
+        <!--    foreach (var item in Model.Likes)
             {
                 <li><a href="#"><img src="~/Content/images/facebook-24.png" /><span>item.LikesCount</span></a></li>
-            }
+            }    -->
             <!--<li><a href="#"><img src="~/Content/images/facebook-24.png" /><span>355</span></a></li>
              <li><a href="#"><img src="~/Content/images/twitter-24.png" /><span>277</span></a></li>
              <li><a href="#"><img src="~/Content/images/bootstrap-24.png" /><span>788</span></a></li>-->
@@ -46,12 +46,13 @@
                         <p>@item</p>
                     </div>
                 </li>
-                <hr>
+                <li><hr></li>
             }
 
 
-        </ul>
-        @Html.Partial("~/Views/Home/AddComment.cshtml", null, new ViewDataDictionary())
+</ul>
+        @Html.Partial("~/Views/Home/AddComment.cshtml")
+        <!--Html.Partial("~/Views/Home/AddComment.cshtml", null, new ViewDataDictionary())-->
     </div>
 </div>
 <div class="rtboxbg">&nbsp;</div>

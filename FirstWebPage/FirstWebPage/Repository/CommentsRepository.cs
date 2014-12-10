@@ -10,5 +10,6 @@ namespace FirstWebPage.Repository
     public class CommentsRepository 
     {
         public static readonly ICollection<string> Comments = new Collection<string>();
+        
     }
 }

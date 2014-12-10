@@ -30,20 +30,32 @@ namespace FirstWebPage.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            string query = Request.QueryString["foo"];
-            var model = new ArticleModel();
-            return View(model);
-        }
-        
-        [HttpPost] //в этот метод можно зайти только используюя метод post
-        public ActionResult Index(AddCommentModel model)
-        {
-            if (!string.IsNullOrWhiteSpace(model.Commenttext))
-            {
-                CommentsRepository.Comments.Add(model.Commenttext);
-            }
+            //string query = Request.QueryString["foo"];
             return View(new ArticleModel());
         }
+
+        [HttpPost]
+        //[ValidateInput(false)]
+        public ActionResult Index(ArticleModel model)
+        {
+            if(model.NewComment != null && ModelState.IsValid)
+            {
+                CommentsRepository.Comments.Add(model.NewComment.Commenttext);
+                return View(new ArticleModel());
+            }
+            return View(model);
+        }
+
+
+        //[HttpPost] //в этот метод можно зайти только используюя метод post
+     //   public ActionResult Index(AddCommentModel model)
+      //  {
+       //     if (!string.IsNullOrWhiteSpace(model.Commenttext))
+       //     {
+       //         CommentsRepository.Comments.Add(model.Commenttext);
+       //     }
+        //    return View(new ArticleModel());
+       // }
 
     }
 }

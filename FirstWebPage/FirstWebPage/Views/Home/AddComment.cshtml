@@ -1,16 +1,18 @@
 ﻿@{
     Layout = null;
 }
-@model FirstWebPage.Models.AddCommentModel
+
+ @model FirstWebPage.Models.ArticleModel
 
 <div class="add-comment">
+    @Html.ValidationSummary()
     <form action="@Url.Action("Index","Home")" method="post">
-        <label id="User_UserName" for='User.UserName'>Логин</label>
-        @Html.TextBoxFor(m => m.User.UserName, new { @class = "textbox, box" })
-        <label id="User_Mail" for='User.Mail'>Email</label>
-        @Html.TextBoxFor(m => m.User.Mail, new { @class = "textbox, box" })
-       
-        @Html.TextAreaFor(m=>m.Commenttext, new { placeholder = "Напиши сюда комментарий" })
+        <span >Логин</span>
+        
+        @Html.TextBoxFor(m => m.NewComment.UserName , new { @class = "textbox, box" })
+        <span>Email</span>
+        @Html.TextBoxFor(m => m.NewComment.Mail, new { @class = "textbox, box" })
+        @Html.TextAreaFor(m=>m.NewComment.Commenttext, new { placeholder = "Напиши сюда комментарий" })
        
        <!--<textarea name="commenttext" id="commenttext" placeholder="Напиши сюда комментарий"></textarea>
         /<input type="text" name="user.username" id="user_username" >
