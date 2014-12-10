@@ -11,11 +11,11 @@ namespace FirstWebPage.Models
     {
         [Required (ErrorMessage = "Пожалуйста, введите логин")]  //коммент всё равно добавляется.не работает защита
         [Display(Name = "логин")]
-        [StringLength(15)]
+        [StringLength(20)]
         public string UserName { get; set; }
         [Required(ErrorMessage = "Пожалуйста, введите свой email")]
         [Display(Name = "email")]
-        [StringLength(20)]
+        [StringLength(25)]
         //[RegularExpression(@"")] проверка на соответствие регулярному выражению
         public string Mail { get; set; }
         [Required(ErrorMessage = "Пожалуйста, введите текст комментария")]

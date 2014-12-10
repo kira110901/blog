@@ -34,9 +34,12 @@
         <span class="dhead">Комментарии</span>
     </div>
     <div class="comments-content">
+        @Html.Partial("~/Views/Home/AddComment.cshtml")
+        <!--Html.Partial("~/Views/Home/AddComment.cshtml", null, new ViewDataDictionary())-->
         <ul class="list-comment">
             @foreach (string item in Model.Comments)
             {
+                <li><hr></li>
                 <li>
                      
                      <div class="avatar"><img src="~/Content/images/4tpTxSHyrlI.jpg" width="100px" height="100px" alt="" /></div>
@@ -46,13 +49,13 @@
                         <p>@item</p>
                     </div>
                 </li>
-                <li><hr></li>
+                
             }
 
 
-</ul>
-        @Html.Partial("~/Views/Home/AddComment.cshtml")
-        <!--Html.Partial("~/Views/Home/AddComment.cshtml", null, new ViewDataDictionary())-->
+        </ul>
+        <div>&nbsp;</div>
+       
     </div>
 </div>
 <div class="rtboxbg">&nbsp;</div>
