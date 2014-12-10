@@ -35,14 +35,14 @@
     </div>
     <div class="comments-content">
         <ul class="list-comment">
-            @foreach (var item in Model.Comments)
+            @foreach (string item in Model.Comments)
             {
                 <li>
-                    <div class="avatar"><img src="~/Content/images/4tpTxSHyrlI.jpg" width="100px" height="100px" alt="" /></div>
+                  <div class="avatar"><img src="~/Content/images/4tpTxSHyrlI.jpg" width="100px" height="100px" alt="" /></div>
                     <div class="comments-text">
-                        <a href="#">@item.Username</a>
-                        <p class="date"><span>@item.Date.ToString("D")</span> <span>@item.Date.ToString("hh:mm")</span></p>
-                        <p>@item.Body</p>
+                        <a href="#"></a>
+                        <p class="date"><span>@DateTime.Now.Date.ToString("D")</span> <span>@DateTime.Now.Date.ToString("hh:mm")</span></p>
+                       <p>@item</p>
                     </div>
                     <hr>
                 </li>
@@ -50,14 +50,7 @@
 
 
         </ul>
-        <div class="add-comment">
-            <textarea name="" placeholder="Напиши сюда комментарий"></textarea>
-            <div class="btn">
-                <button class="btn-cancel">Cancel</button>
-                <button class="btn-save">Save</button>
-                <p>Что-то там написано непонятное <a href="#">Перейти</a></p>
-            </div>
-        </div>
+        @Html.Partial("~/Views/Home/AddComment.cshtml", null, new ViewDataDictionary())
     </div>
 </div>
 <div class="rtboxbg">&nbsp;</div>

@@ -1,0 +1,20 @@
+﻿@{
+    Layout = null;
+}
+@model FirstWebPage.Models.AddCommentModel
+
+<div class="add-comment">
+    <form action="@Url.Action("Index","Home")" method="post">
+        @Html.TextAreaFor(m=>m.Commenttext, new { placeholder = "Напиши сюда комментарий" })
+        @Html.TextBoxFor(m => m.User.UserName)
+        @Html.TextBoxFor(m => m.User.Age)
+       <!--<textarea name="commenttext" id="commenttext" placeholder="Напиши сюда комментарий"></textarea>
+        /<input type="text" name="user.username" id="user_username" >
+        <input type="text" name="user.age" id="user_age" > -->
+        <div class="btn">
+            <button class="btn-cancel">Cancel</button>
+            <button class="btn-save">Save</button>
+            <p>Что-то там написано непонятное <a href="#">Перейти</a></p>
+        </div>
+    </form>
+</div>
