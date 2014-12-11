@@ -86,10 +86,8 @@ img{border:0;}
 
 /*right content details*/
 .document{
-	
 	background-color:#fff;
 	width: 615px;
-	
 }
 
 .dochead{
@@ -114,7 +112,7 @@ img{border:0;}
 	color:#656565;
 	font:12px Tahoma, Geneva, sans-serif;
 	line-height: 30px;
-	margin-left: 15px;
+	margin-left: 25px;
 }
 
 .dcontent{

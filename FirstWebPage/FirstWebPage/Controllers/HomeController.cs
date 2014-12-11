@@ -12,19 +12,31 @@ namespace FirstWebPage.Controllers
     {
        
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Index(string title)
         {
             //string query = Request.QueryString["foo"];
-            return View(new ArticleModel());
+            if (title == null)
+            {
+                title = "О дрессировке кошек";
+            }
+            var readers = new NewDataReaders();//считываем из базы
+            return View(readers.GetArticleModel(title));
         }
 
         [HttpPost]
         //[ValidateInput(false)] чтобы можо было отправить код из полей ввода
         public ActionResult Index(ArticleModel model)
         {
+            
+             var  title = "О дрессировке кошек";
+            
             if(model.NewComment != null && ModelState.IsValid)
             {
+
+                var readers = new NewDataReaders();//считываем из базы
+
                 CommentsRepository.Comments.Add(model.NewComment.Commenttext);
+                ModelState.Clear(); //чтобы не оставались комментарии при обновлении страницы в поле ввода комментариев
                 return View(new ArticleModel());
             }
             return View(model);

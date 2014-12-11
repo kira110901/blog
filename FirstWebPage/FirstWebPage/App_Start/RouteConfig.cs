@@ -14,11 +14,13 @@ namespace FirstWebPage
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute("Post", "post-{title}", new { controller = "Home", action = "Index"});
+
             routes.MapRoute(
                name: "article",
-               url: "article-{seoUrl}",
+              url: "article-{seoUrl}",
                defaults: new { controller = "Article", action = "GetByUrl", seoUrl = string.Empty }
-           );
+          );
 
             routes.MapRoute(
                 name: "Default",
