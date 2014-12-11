@@ -40,8 +40,10 @@
         @Html.Partial("~/Views/Home/AddComment.cshtml")
         <!--Html.Partial("~/Views/Home/AddComment.cshtml", null, new ViewDataDictionary())-->
         <ul class="list-comment">
-            @foreach (string item in Model.Comments)
+            @if (Model.Comments != null)
             {
+               foreach (string item in Model.Comments)
+               {
                 <li><hr></li>
                 <li>
                      
@@ -52,7 +54,7 @@
                         <p>@item</p>
                     </div>
                 </li>
-                
+                }
             }
 
 

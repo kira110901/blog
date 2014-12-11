@@ -34,10 +34,10 @@ namespace FirstWebPage.Controllers
             {
 
                 var readers = new NewDataReaders();//считываем из базы
-
-                CommentsRepository.Comments.Add(model.NewComment.Commenttext);
+                readers.AddComment(title, model.NewComment.Commenttext);
+                //CommentsRepository.Comments.Add(model.NewComment.Commenttext);
                 ModelState.Clear(); //чтобы не оставались комментарии при обновлении страницы в поле ввода комментариев
-                return View(new ArticleModel());
+                return View(readers.GetArticleModel(title));
             }
             return View(model);
         }

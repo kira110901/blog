@@ -33,7 +33,7 @@ namespace FirstWebPage.Models
         }
         public ICollection<string> Comments
         {
-            get { return CommentsRepository.Comments; }
+            get { return comments; }
 
         }
 

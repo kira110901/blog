@@ -142,7 +142,6 @@
     <Compile Include="Models\ResentDataItemModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CommentsRepository.cs" />
-    <Compile Include="Repository\DataReaders.cs" />
     <Compile Include="Repository\NewDataReaders.cs" />
   </ItemGroup>
   <ItemGroup>

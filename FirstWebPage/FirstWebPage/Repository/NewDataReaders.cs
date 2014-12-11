@@ -36,8 +36,8 @@ namespace FirstWebPage.Repository
                     }
                 }
 
-
-                using (var command = new SqlCommand("SELECT comment.body FROM Comment INNER JOIN Post ON Comment.PostID = Post.PostID WHERE Post.Title = @title"))
+                //поменять запрос когда буду выгружать из таблицы Comment
+                using (var command = new SqlCommand("SELECT coments.body FROM Coments INNER JOIN Post ON Coments.id_post = Post.id_post WHERE Post.title = @title"))
                 {
                     command.Connection = connection;
                     command.Parameters.Add(new SqlParameter("title", title));
@@ -64,7 +64,7 @@ namespace FirstWebPage.Repository
         {
             using( var sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["mssql"].ConnectionString))
             {
-                 using (var sqlCommand = new SqlCommand(@"INSERT INTO Comments
+                 using (var sqlCommand = new SqlCommand(@"INSERT INTO Coments
 	                 SELECT id_post, @comment AS MyPost 
                      FROM Post 
                      WHERE title = @title")) 
@@ -72,6 +72,7 @@ namespace FirstWebPage.Repository
                      sqlCommand.Parameters.Add(new SqlParameter("comment", comment));
                      sqlCommand.Parameters.Add(new SqlParameter("title", title));
                      sqlCommand.Connection = sqlConnection;
+                     sqlConnection.Open();
                      sqlCommand.ExecuteNonQuery();
                 }
             }
