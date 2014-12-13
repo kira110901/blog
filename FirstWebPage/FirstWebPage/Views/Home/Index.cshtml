@@ -1,16 +1,19 @@
 ﻿
 <!--Эта страница принимает модели таких типов как-->
-@model FirstWebPage.Models.ArticleModel
+<!--model firstwebpage.models.articlemodel-->
+ @using Database.Models
+ @model FirstWebPage.Models.ArticleModel
+
 
 <div class="document">
     <div>&nbsp;</div>
     @if(Model.Post !=null)
-    { 
+    {
     <div class="dochead">
         <span class="dhead">@Model.Post.Title</span>
     </div>
     <div>
-        <p class="post"><span>@Model.Post.DateCreated.Date.ToString("D")</span> <span>@Model.Post.DateCreated.ToString("hh:mm")</span></p>
+        <p class="post"><span>@Model.Post.DateCreated.ToString("D")</span> <span>@Model.Post.DateCreated.ToString("hh:mm")</span></p>
     </div>
     <div class="dcontent">
        @Html.Raw(Model.Post.Body)
@@ -46,7 +49,7 @@
                {
                 <li><hr></li>
                 <li>
-                     
+
                      <div class="avatar"><img src="~/Content/images/4tpTxSHyrlI.jpg" width="100px" height="100px" alt="" /></div>
                      <div class="comments-text">
                         <h4><span>Логин</span><span class="mail">dfg@df.dfg</span></h4>
@@ -60,7 +63,7 @@
 
         </ul>
         <div>&nbsp;</div>
-       
+
     </div>
 </div>
 <div class="rtboxbg">&nbsp;</div>

@@ -30,3 +30,5 @@ C:\Users\Кира\Documents\Visual Studio 2013\Projects\FirstWebPage\FirstWebPag
 C:\Users\Кира\Documents\Visual Studio 2013\Projects\FirstWebPage\FirstWebPage\obj\Debug\FirstWebPage.csprojResolveAssemblyReference.cache
 C:\Users\Кира\Documents\Visual Studio 2013\Projects\FirstWebPage\FirstWebPage\obj\Debug\FirstWebPage.dll
 C:\Users\Кира\Documents\Visual Studio 2013\Projects\FirstWebPage\FirstWebPage\obj\Debug\FirstWebPage.pdb
+C:\Users\Кира\Documents\Visual Studio 2013\Projects\FirstWebPage\FirstWebPage\bin\EntityFramework.SqlServer.dll
+C:\Users\Кира\Documents\Visual Studio 2013\Projects\FirstWebPage\FirstWebPage\bin\EntityFramework.SqlServer.xml

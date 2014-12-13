@@ -1,7 +1,10 @@
-﻿using FirstWebPage.Models;
+﻿using Database.Models;
+using FirstWebPage.Models;
 using FirstWebPage.Repository;
+using FirstWebPage.Repository.Domain;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -19,8 +22,26 @@ namespace FirstWebPage.Controllers
             {
                 title = "О дрессировке кошек";
             }
-            var readers = new NewDataReaders();//считываем из базы
-            return View(readers.GetArticleModel(title));
+
+            using (var ctx = new EFContext())
+            {
+                var post = ctx.Posts.Where(p => p.title==title).FirstOrDefault();
+                var postModel = new PostModel(post.title, post.body, post.datecreated);
+                var commentModel = new Collection<string>();
+                if (post.Comments != null && post.Comments.Any())
+                {
+                    foreach (var item in post.Comments)
+                    {
+                        commentModel.Add(item.body);
+                    }
+                }
+                return View(new ArticleModel(postModel,commentModel));
+            } 
+
+            
+
+           // var readers = new NewDataReaders();//считываем из базы
+           // return View(readers.GetArticleModel(title));
         }
 
         [HttpPost]
@@ -28,17 +49,28 @@ namespace FirstWebPage.Controllers
         public ActionResult Index(ArticleModel model)
         {
             
-             var  title = "О дрессировке кошек";
-            
-            if(model.NewComment != null && ModelState.IsValid)
-            {
+           var  title = "О дрессировке кошек";
+           if (model.NewComment != null && ModelState.IsValid)
+           {
+             using (var ctx = new EFContext())
+             {
+                var post = ctx.Posts.Where(p => p.title == title).FirstOrDefault();
+                if(post != null)
+                {
+                    ctx.Comments.Add(new Coments() { body = model.NewComment.Commenttext, id_post = post.id_post });
+                    ctx.SaveChanges();
+                }
+              }
 
-                var readers = new NewDataReaders();//считываем из базы
-                readers.AddComment(title, model.NewComment.Commenttext);
+            
+
+          //      var readers = new NewDataReaders();//считываем из базы
+          //      readers.AddComment(title, model.NewComment.Commenttext);
                 //CommentsRepository.Comments.Add(model.NewComment.Commenttext);
                 ModelState.Clear(); //чтобы не оставались комментарии при обновлении страницы в поле ввода комментариев
-                return View(readers.GetArticleModel(title));
-            }
+                return RedirectToAction("Index", new {title = title});
+            //     return View(readers.GetArticleModel(title));
+           }
             return View(model);
         }
 
@@ -71,5 +103,7 @@ namespace FirstWebPage.Controllers
         //    return View(new ArticleModel());
        // }
 
+
+        public IEnumerable<object> Collection { get; set; }
     }
 }
