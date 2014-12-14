@@ -15,15 +15,18 @@ namespace FirstWebPage.Models
 
         public ArticleModel()
         {
-            post = new PostModel("Бла бла", "хихихихи", DateTime.Now);
-            comments = CommentsRepository.Comments;
+            
+          //  post = new PostModel("Бла бла", "хихихихи", DateTime.Now);
+         //   comments = CommentsRepository.Comments;
        
         }
-        public ArticleModel(PostModel post,ICollection<string> comments)
+        public ArticleModel(PostModel post, ICollection<string> comments)
         {
             this.post = post;
             this.comments = comments;
         }
+
+        
         public PostModel Post
         {
             get
@@ -36,6 +39,8 @@ namespace FirstWebPage.Models
             get { return comments; }
 
         }
+
+        
 
         public AddCommentModel NewComment { get; set; }
 

@@ -147,6 +147,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CommentsRepository.cs" />
     <Compile Include="Repository\Domain\Coments.cs" />
+    <Compile Include="Repository\Domain\Comment.cs" />
     <Compile Include="Repository\Domain\Post.cs" />
     <Compile Include="Repository\EFContext.cs" />
     <Compile Include="Repository\NewDataReaders.cs" />
@@ -157,8 +158,11 @@
     <Content Include="Content\images\4tpTxSHyrlI.jpg" />
     <Content Include="Content\images\bg.jpg" />
     <Content Include="Content\images\bootstrap-24.png" />
+    <Content Include="Content\images\cat.png" />
     <Content Include="Content\images\facebook-24.png" />
     <Content Include="Content\images\JJOWbRFkmPI.jpg" />
+    <Content Include="Content\images\lapi.png" />
+    <Content Include="Content\images\lapi2.png" />
     <Content Include="Content\images\N41qgu3Ra14.jpg" />
     <Content Include="Content\images\rtboxbg1.jpg" />
     <Content Include="Content\images\topbanner.jpg" />
@@ -208,6 +212,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\AddComment.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\About.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\History.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

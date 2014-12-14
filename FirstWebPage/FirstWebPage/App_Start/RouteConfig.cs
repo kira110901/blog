@@ -14,11 +14,13 @@ namespace FirstWebPage
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+           // routes.MapMvcAttributeRoutes(); не работает
+
             routes.MapRoute("Post", "post-{title}", new { controller = "Home", action = "Index"});
 
             routes.MapRoute(
                name: "article",
-              url: "article-{seoUrl}",
+               url: "article-{seoUrl}",
                defaults: new { controller = "Article", action = "GetByUrl", seoUrl = string.Empty }
           );
 
@@ -28,6 +30,20 @@ namespace FirstWebPage
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }//если чего-то не найдено,то считать что контроллер хом и т.д.
                 , namespaces: Namespaces
             );
+
+            routes.MapRoute(
+               name: "Default1",
+               url: "{controller}/{action}/{id}",
+               defaults: new { controller = "Home", action = "About", id = UrlParameter.Optional }//если чего-то не найдено,то считать что контроллер хом и т.д.
+               , namespaces: Namespaces
+           );
+
+            routes.MapRoute(
+               name: "Default2",
+               url: "{controller}/{action}/{id}",
+               defaults: new { controller = "Home", action = "History", id = UrlParameter.Optional }//если чего-то не найдено,то считать что контроллер хом и т.д.
+               , namespaces: Namespaces
+           );
         }
     }
 }

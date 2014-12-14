@@ -13,7 +13,21 @@ namespace FirstWebPage.Controllers
 {
     public class HomeController : Controller
     {
-       
+
+        [HttpGet]
+        public ActionResult About()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult History()
+        {
+                       
+            return View();          
+           
+
+        }
         [HttpGet]
         public ActionResult Index(string title)
         {

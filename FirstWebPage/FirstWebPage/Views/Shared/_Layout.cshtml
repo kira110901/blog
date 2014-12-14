@@ -46,14 +46,18 @@
                 
                 <div id="menulinks">
                     <ul>
-                        <li><a href="#">Последние</a></li>
-                        <li><a href="#">Архив</a></li>
-                        <li><a href="#">Обо мне</a></li>
-
+                        <li>@Html.ActionLink("Последний", "Index", "Home", null, null)</li>
+                        <li>@Html.ActionLink("Архив", "History", "Home", null, null)</li>
+                        <li>@Html.ActionLink("Обо мне", "About", "Home", null, null)</li>
+                        @*<a href="@Url.Action("ById", "Comment", new {id = item.ID})">Hello!!!!</a>*@
+                        @*Html.ActionLink("World!!!!!", "ById", "Comment", new { id = item.ID }, null)  null-атрибуты для ссылки например класс *@ 
+                        @*<a href="@Url.RouteUrl("default1", new { controller = "Comment", action = "ById", id = item.ID })">@item.Text</a>*@
+                        @*@Html.RouteLink("Hello from Mars", "article", new { seoUrl = item.Text })*@
+                        
                     </ul>
                 </div>
                 <div class="clear"></div>
-                @RenderBody()
+                @RenderBody() <!--директива, которая “рисует”, собственно, тот View, для которого работает данный Layout.-->
                 <br />
 
             </div>

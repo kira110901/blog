@@ -17,6 +17,9 @@
     </div>
     <div class="dcontent">
        @Html.Raw(Model.Post.Body)
+        <br>
+        <br>
+        <img src="~/Content/images/lapi2.png" />
     </div>
     }
     <div class="bubble" align="right">
@@ -45,7 +48,7 @@
         <ul class="list-comment">
             @if (Model.Comments != null)
             {
-               foreach (string item in Model.Comments)
+               foreach (var item in Model.Comments)
                {
                 <li><hr></li>
                 <li>

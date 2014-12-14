@@ -12,8 +12,9 @@ namespace FirstWebPage.Repository
     {
         public EFContext(): base("mssql")   //конструктор использует имя строки подключения
         {
-        }
 
+        }
+        //DbSet - множество,описанное для базы данных
         public DbSet<Post> Posts { get; set; } //  коллекция уникальных записей в базе (data base set) типа  post
 
         public DbSet<Coments> Comments { get; set; }

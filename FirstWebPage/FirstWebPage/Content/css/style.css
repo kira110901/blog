@@ -115,6 +115,30 @@ img{border:0;}
 	margin-left: 25px;
 }
 
+.dcontent img {
+    margin-left:7px;
+    padding:0;
+    
+}
+
+
+.dcontent pre {
+    font:16px Tahoma, Geneva, sans-serif;
+	color:#1f1e1e;
+	margin-top:20px;
+	line-height:23px;
+	margin-left: 25px;
+	margin-right:25px;
+	padding-bottom:15px;	
+	letter-spacing:1px;
+}
+
+.dcontent pre img {
+    margin:0;
+    padding:0;
+}
+
+
 .dcontent{
 	font:16px Tahoma, Geneva, sans-serif;
 	color:#1f1e1e;
